@@ -9,7 +9,7 @@ This project provides a Python client for interacting with Fusion SEM BLE device
 
 Install dependencies:
 ```bash
-pip install bleak cryptography
+pip install -r requirements.txt
 ```
 
 ## Usage
