@@ -149,23 +149,23 @@ async def main():
         # ok = await client.post_custom_data(b'{"Cmd":"set_ha","sw":2,"url":"mqtt://homeassistant.local","port":1883,"username":"your_user","password":"your_pass"}')
         # if ok:
         #     try:
-        #         pl = await client.wait_for_data(SUB_CUSTOM, timeout=5.0)
+        #         pl = await client.wait_for_data(GET_CUSTOM, timeout=5.0)
         #         logger.info("HA Write: %s", pl.decode("utf-8"))
         #     except asyncio.TimeoutError:
         #         logger.warning("Timed out waiting for HA write response")
         # else:
         #     logger.warning("Request HA write failed")
 
-
-        # ok = await client.post_custom_data(b'{"Cmd":"sem_source"}')
-        # if ok:
-        #     try:
-        #         pl = await client.wait_for_data(SUB_CUSTOM, timeout=5.0)
-        #         logger.info("SEM Source: %s", pl.decode("utf-8"))
-        #     except asyncio.TimeoutError:
-        #         logger.warning("Timed out waiting for SEM source")
-        # else:
-        #     logger.warning("Request SEM source failed")
+        # SEM Source - not sure what this is and not working as of now
+        #ok = await client.post_custom_data(b'{"Cmd":"sem_source"}')
+        #if ok:
+        #    try:
+        #        pl = await client.wait_for_data(GET_CUSTOM, timeout=5.0)
+        #        logger.info("SEM Source: %s", pl.decode("utf-8"))
+        #    except asyncio.TimeoutError:
+        #        logger.warning("Timed out waiting for SEM source")
+        #else:
+        #    logger.warning("Request SEM source failed")
 
         # STA - 1
         # rc = await client.configure_wifi(1, sta_ssid="your_ssid", sta_password="your_password")
