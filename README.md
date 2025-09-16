@@ -17,6 +17,7 @@ Run the main script to scan and interact with SEMMETER devices:
 ```bash
 python main.py
 ```
+Some functions are commented out in the main.py.  You will need to uncomment them and specify your HA mqtt server and/or wifi settings.
 
 ## License
 MIT License
