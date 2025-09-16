@@ -68,20 +68,20 @@ class BlufiEventHub:
     def emit(self, evt: BlufiEvent) -> None:
         key = (evt.pkg, evt.sub)
 
-        # 1) Satisfy one waiter if present
+        # Satisfy one waiter if present
         if self._waiters[key]:
             fut = self._waiters[key].popleft()
             if not fut.done():
                 fut.set_result(evt)
             return
 
-        # 2) Otherwise buffer (bounded)
+        # Otherwise buffer (bounded)
         buf = self._buffers[key]
         if len(buf) >= self._max_buffer:
             buf.popleft()
         buf.append(evt)
 
-        # 3) Fan-out to listeners (best-effort)
+        # Fan-out to listeners (best-effort)
         if self._listeners[key]:
             for cb in list(self._listeners[key]):
                 try:
